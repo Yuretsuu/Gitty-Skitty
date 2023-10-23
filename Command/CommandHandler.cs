@@ -1,4 +1,5 @@
 using Discord.WebSocket;
+using GittySkitty.Authentication;
 using GittySkitty.Command;
 
 public class CommandHandler

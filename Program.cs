@@ -1,5 +1,6 @@
 ﻿using Discord;
 using Discord.WebSocket;
+using GittySkitty.Authentication;
 using GittySkitty.Command;
 using Microsoft.Extensions.DependencyInjection;
 

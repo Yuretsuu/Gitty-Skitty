@@ -9,17 +9,10 @@ namespace GittySkitty.Authentication
         private readonly GitHubClient _gitHubClient;
         private readonly string _discordToken;
 
-        public Authenticate() // Constructor
-public class Authenticate
-{
-    private readonly GitHubClient _gitHubClient;
-    private readonly string _discordBotToken;
-    
-    public Authenticate(string envFilePath = null)
-    {
-        if (string.IsNullOrEmpty(envFilePath))
+        public Authenticate(string envFilePath = null)
         {
-            LoadEnvironmentVariables();
+            LoadEnvironmentVariables(envFilePath);
+            
             var token = Environment.GetEnvironmentVariable("GITHUB_TOKEN");
             _discordToken = Environment.GetEnvironmentVariable("DISCORD_TOKEN");
             
@@ -36,21 +29,17 @@ public class Authenticate
             };
         }
 
-        private void LoadEnvironmentVariables()
+        private void LoadEnvironmentVariables(string envFilePath = null)
         {
-            var envFilePath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), ".env");
+            if (string.IsNullOrEmpty(envFilePath))
+            {
+                envFilePath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), ".env");
+            }
             Console.WriteLine($"Loading environment variables from: {envFilePath}");  // Debug statement
             DotNetEnv.Env.Load(envFilePath);
         }
+        public GitHubClient GitHubClient => _gitHubClient;
 
-        public GitHubClient GetGitHubClient()
-        {
-            return _gitHubClient;
-        }
-
-        public string GetDiscordToken()
-        {
-            return _discordToken;
-        }
+        public string DiscordToken => _discordToken;
     }
 }

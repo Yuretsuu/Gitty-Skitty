@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
+using GittySkitty.Authentication;
 using Octokit;
 
 namespace GittySkitty.Command
