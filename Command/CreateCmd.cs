@@ -2,14 +2,13 @@ using Discord;
 using Discord.Net;
 using Discord.WebSocket;
 using GittySkitty.Command;
-using GittySkitty.Log;
 
+//This file handles code to create commands. 
 public class CreateCmd
 {
-    public static async Task CreateAndRegisterSlashCommand(SocketGuild guild, ErrorLog errorLog)
+    public static async Task CreateAndRegisterSlashCommand(SocketGuild guild)
     {
-        var summaryObject = new SummaryObject();  // Assumes CommandName and CommandDesc are hardcoded in SummaryObject constructor
-
+        var summaryObject = new SummaryObject(); 
         var guildCommand = new SlashCommandBuilder();
 
         guildCommand.WithName(summaryObject.CommandName);
@@ -23,9 +22,9 @@ public class CreateCmd
         }
         catch(ApplicationCommandException exception)
         {
-            await errorLog.LogErrorAsync(exception);
+            
             Console.WriteLine($"Failed to create guild command: {summaryObject.CommandName}");
-            await CreateAndRegisterSlashCommand(guild, errorLog);  // Recursive call to retry command registration
+            await CreateAndRegisterSlashCommand(guild);  // Recursive call to retry command registration
         }
     }
 }

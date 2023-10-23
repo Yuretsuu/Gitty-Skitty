@@ -10,6 +10,14 @@ namespace GittySkitty.Authentication
         private readonly string _discordToken;
 
         public Authenticate() // Constructor
+public class Authenticate
+{
+    private readonly GitHubClient _gitHubClient;
+    private readonly string _discordBotToken;
+    
+    public Authenticate(string envFilePath = null)
+    {
+        if (string.IsNullOrEmpty(envFilePath))
         {
             LoadEnvironmentVariables();
             var token = Environment.GetEnvironmentVariable("GITHUB_TOKEN");

@@ -60,9 +60,21 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0-rc.2.23479.6, )"
+            },
+            "Miki.Discord.Gateway": {
+              "target": "Package",
+              "version": "[5.0.0-v5248015595, )"
+            },
             "Octokit": {
               "target": "Package",
               "version": "[8.0.1, )"
+            },
+            "Remora.Discord.Gateway": {
+              "target": "Package",
+              "version": "[11.1.0, )"
             }
           },
           "imports": [

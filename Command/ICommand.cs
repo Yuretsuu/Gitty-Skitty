@@ -9,6 +9,8 @@ namespace GittySkitty.Command
     {
         string GetCommandName();
         string GetCommandDescription();
+        
+        Task CreateAndRegister(SocketGuild guild);
     }
 }
 
